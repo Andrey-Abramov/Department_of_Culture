@@ -24,10 +24,52 @@ body
     & h5
       height: 100%
 
+@media (min-width: 768px) and (max-width: 950px)
+  .map__text
+    width: 40%
 
-@media (max-width: 768px)
-  .header__logo
-    width: 100%
+@media (min-width: 768px)
+  .card-body
+   height: 210px
+   display: flex
+   flex-direction: column
+  .card-block-2
+    flex-grow: 3
+    align-items: flex-end
+    display: flex
+    text-align: left!important
+  .news-page .news__block
+    margin-bottom: 20px!important
+  .news .card-img-top
+      height: 67%
+  .events .card-img-top
+    height: 55%
+  .events .card-body
+    height: auto
+  .events .card-text
+    -webkit-line-clamp: 4
+
+@media (max-width: 767px)
+  .header
+    &__logo
+      width: 100%
+      & a
+        text-align: center !important
+    &__contacts
+      width: 100%
+      & a
+        text-align: center !important
+
+  .navigation
+    & .container-fluid
+      justify-content: end
+    & li
+      text-align: center
+
+  .news
+    & a,
+    & .card-block-2
+      text-align: end!important
 
   .map
     & .card-img-overlay
@@ -50,7 +92,8 @@ body
 
   .footer
     &__left,
-    &__right
+    &__right,
+    &__center
       width: 100%!important
 
 
@@ -86,6 +129,7 @@ body
   .news
     & .card
      height: 100%
+    & .card-block-2
 
   .events
     padding-top: 20px!important
@@ -111,6 +155,9 @@ body
       width: 99%
     &__bottom
       display: block!important
+    &__center
+      & ul
+        column-gap: 20px
 
 
 @media (min-width: 1400px)
@@ -135,17 +182,19 @@ body
       & p
         font-size: 14px
         line-height: 14px
-      & h5
+      & h1
         font-size: 28px
         margin-right: 19px!important
         margin-top: 12px!important
+        letter-spacing: 0em
+        text-align: left
       & a
         font-size: 20px
         line-height: 27px
-    &__mail
-      margin-top: 14px!important
-    &__contacts
-      margin-right: 14px!important
+      & .bi
+        margin-right: 14px!important
+    &__phone
+      padding-bottom: 14px!important
 
   .navigation
     height: 60px
@@ -161,7 +210,7 @@ body
     &__left
       left: 0!important
       width: 50%
-      position: relative
+      position: absolute
     &__text
       position: absolute
       right: 22px!important
@@ -229,11 +278,13 @@ body
       justify-content: space-between
     &__all
       margin-top: 15px!important
+    & .card-img-top
+      height: 282px
   .card
     height: 492px
   .card-body
     min-height: 210px
-    position: relative
+    padding-right: 15px!important
   .card-date
     font-size: 16px
     line-height: 23px
@@ -245,10 +296,7 @@ body
     &-2
       line-height: 25px
   .card-block-2
-    padding-top: 7px!important
-  .card-block div
     padding-bottom: 20px!important
-    margin-top: 11px!important
   .card-text
     font-size: 16px
     line-height: 23px
@@ -259,11 +307,15 @@ body
     margin-bottom: 20px!important
     position: absolute
     bottom: 0px
+
   .events
     padding-top: 100px!important
+    & .card
+      height: 510px
     & .card-body
       min-height: 228px!important
       padding-right: 30px!important
+
   .reviews
     padding-top: 100px!important
     padding-bottom: 100px!important
@@ -299,6 +351,8 @@ body
       line-height: 22px
       margin-top: 0!important
       margin-bottom: 25px!important
+    & .card
+      height: auto
 
   .footer
     height: 300px
@@ -315,11 +369,11 @@ body
         line-height: 26px
         margin-top: 6px!important
     &__center
-      &-left
-        margin-right: 108px!important
-      &-left,
-      &-right
-        font-size: 18px
+      margin-right: 108px!important
+      font-size: 18px
+      height: 150px
+      & ul
+        column-gap: 100px
     &__right
       font-size: 16px
       line-height: 22px
@@ -335,7 +389,8 @@ body
         margin-bottom: 12px!important
       & img
         margin-top: 7px!important
-
+  .full-img
+    width: 50% !important
 
 a:hover
   color: $color-gray!important
@@ -356,9 +411,11 @@ footer .link-body-emphasis:focus,
       letter-spacing: 0em
       text-align: left
       font-weight: 400
-  &__img-1
+  & .bi
+    color: $color-blue-2
+  & .bi-geo-alt-fill
     margin-right: 7px!important
-  &__img-2
+  & .bi-eye-fill
     margin-right: 10px!important
   &__down
     background-color: #FFFFFF
@@ -370,13 +427,10 @@ footer .link-body-emphasis:focus,
       text-align: left
       color: $color-black
       font-weight: 300
-    & h5
+    & h1
       font-family: 'Merriweather', serif
       color: $color-black
-      letter-spacing: 0em
-      text-align: left
       font-weight: 700
-      line-height: 27px
     & a
       color: $color-blue
       font-family: 'Open Sans', sans-serif
@@ -433,6 +487,10 @@ footer .link-body-emphasis:focus,
     --bs-btn-disabled-color: #E51170!important
     --bs-btn-disabled-border-color: #E51170!important
     --bs-btn-hover-color: #fff
+  & button
+    opacity: 1
+    &:hover
+      opacity: 0.5
 
 .background
   background-color: $color-background
@@ -494,6 +552,10 @@ footer .link-body-emphasis:focus,
     text-align: left
     color: $color-black
     font-weight: 400
+    display: -webkit-box
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+    overflow: hidden
     & b
       font-weight: 700
   & .card-block div
@@ -507,10 +569,16 @@ footer .link-body-emphasis:focus,
     text-align: left
     color: $color-blue-2
     display: contents
-
+.full-img
+  max-height: 500px
+  min-width: 50%
+  margin: auto!important
+  display: block
 .events
   & a
     text-decoration: none!important
+  & .card-text
+    -webkit-line-clamp: 5
 
 .reviews
   & a
@@ -567,12 +635,16 @@ footer .link-body-emphasis:focus,
     &-2
       font-weight: 700
   &__center
-    &-left,
-    &-right
-      font-family: 'Roboto', sans-serif
-      letter-spacing: 0em
-      text-align: left
-      font-weight: 400
+    font-family: 'Roboto', sans-serif
+    letter-spacing: 0em
+    text-align: left
+    font-weight: 400
+    & ul
+      list-style-position: inside
+      -moz-column-count: 2 /* Firefox */
+      -webkit-column-count: 2 /* Safari and Chrome */
+      column-count: 2
+      height: 150px
   &__right
     font-family: 'Open Sans', sans-serif
     letter-spacing: 0em
@@ -583,10 +655,12 @@ footer .link-body-emphasis:focus,
     letter-spacing: 0.06em
     text-align: left
     font-weight: 400
-    margin-top: 23px!important
     display: flex
     & a
       text-decoration: underline!important
     & img
       width: 88px
       height: 31px
+      
+.letsee-guard
+  z-index: 2

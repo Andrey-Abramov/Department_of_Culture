@@ -23,9 +23,60 @@ body {
     height: 100%;
   }
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 950px) {
+  .map__text {
+    width: 40%;
+  }
+}
+@media (min-width: 768px) {
+  .card-body {
+    height: 210px;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-block-2 {
+    flex-grow: 3;
+    align-items: flex-end;
+    display: flex;
+    text-align: left !important;
+  }
+  .news-page .news__block {
+    margin-bottom: 20px !important;
+  }
+  .news .card-img-top {
+    height: 67%;
+  }
+  .events .card-img-top {
+    height: 55%;
+  }
+  .events .card-body {
+    height: auto;
+  }
+  .events .card-text {
+    -webkit-line-clamp: 4;
+  }
+}
+@media (max-width: 767px) {
   .header__logo {
     width: 100%;
+  }
+  .header__logo a {
+    text-align: center !important;
+  }
+  .header__contacts {
+    width: 100%;
+  }
+  .header__contacts a {
+    text-align: center !important;
+  }
+  .navigation .container-fluid {
+    justify-content: end;
+  }
+  .navigation li {
+    text-align: center;
+  }
+  .news a, .news .card-block-2 {
+    text-align: end !important;
   }
   .map .card-img-overlay {
     position: static !important;
@@ -44,7 +95,7 @@ body {
   .news__block {
     margin-top: 20px !important;
   }
-  .footer__left, .footer__right {
+  .footer__left, .footer__right, .footer__center {
     width: 100% !important;
   }
 }
@@ -110,6 +161,9 @@ body {
   .footer__bottom {
     display: block !important;
   }
+  .footer__center ul {
+    column-gap: 20px;
+  }
 }
 @media (min-width: 1400px) {
   * {
@@ -137,20 +191,22 @@ body {
     font-size: 14px;
     line-height: 14px;
   }
-  .header__down h5 {
+  .header__down h1 {
     font-size: 28px;
     margin-right: 19px !important;
     margin-top: 12px !important;
+    letter-spacing: 0em;
+    text-align: left;
   }
   .header__down a {
     font-size: 20px;
     line-height: 27px;
   }
-  .header__mail {
-    margin-top: 14px !important;
-  }
-  .header__contacts {
+  .header__down .bi {
     margin-right: 14px !important;
+  }
+  .header__phone {
+    padding-bottom: 14px !important;
   }
   .navigation {
     height: 60px;
@@ -168,7 +224,7 @@ body {
   .carousel__left {
     left: 0 !important;
     width: 50%;
-    position: relative;
+    position: absolute;
   }
   .carousel__text {
     position: absolute;
@@ -250,12 +306,15 @@ body {
   .news__all {
     margin-top: 15px !important;
   }
+  .news .card-img-top {
+    height: 282px;
+  }
   .card {
     height: 492px;
   }
   .card-body {
     min-height: 210px;
-    position: relative;
+    padding-right: 15px !important;
   }
   .card-date {
     font-size: 16px;
@@ -271,11 +330,7 @@ body {
     line-height: 25px;
   }
   .card-block-2 {
-    padding-top: 7px !important;
-  }
-  .card-block div {
     padding-bottom: 20px !important;
-    margin-top: 11px !important;
   }
   .card-text {
     font-size: 16px;
@@ -291,6 +346,9 @@ body {
   }
   .events {
     padding-top: 100px !important;
+  }
+  .events .card {
+    height: 510px;
   }
   .events .card-body {
     min-height: 228px !important;
@@ -336,6 +394,9 @@ body {
     margin-top: 0 !important;
     margin-bottom: 25px !important;
   }
+  .map .card {
+    height: auto;
+  }
   .footer {
     height: 300px;
     padding-top: 55px !important;
@@ -355,11 +416,13 @@ body {
     line-height: 26px;
     margin-top: 6px !important;
   }
-  .footer__center-left {
+  .footer__center {
     margin-right: 108px !important;
-  }
-  .footer__center-left, .footer__center-right {
     font-size: 18px;
+    height: 150px;
+  }
+  .footer__center ul {
+    column-gap: 100px;
   }
   .footer__right {
     font-size: 16px;
@@ -380,6 +443,9 @@ body {
   }
   .footer__bottom img {
     margin-top: 7px !important;
+  }
+  .full-img {
+    width: 50% !important;
   }
 }
 a:hover {
@@ -404,10 +470,13 @@ footer .link-body-emphasis:focus,
   text-align: left;
   font-weight: 400;
 }
-.header__img-1 {
+.header .bi {
+  color: #39AAE1;
+}
+.header .bi-geo-alt-fill {
   margin-right: 7px !important;
 }
-.header__img-2 {
+.header .bi-eye-fill {
   margin-right: 10px !important;
 }
 .header__down {
@@ -422,13 +491,10 @@ footer .link-body-emphasis:focus,
   color: #272727;
   font-weight: 300;
 }
-.header__down h5 {
+.header__down h1 {
   font-family: "Merriweather", serif;
   color: #272727;
-  letter-spacing: 0em;
-  text-align: left;
   font-weight: 700;
-  line-height: 27px;
 }
 .header__down a {
   color: #50B3E3;
@@ -494,6 +560,12 @@ footer .link-body-emphasis:focus,
   --bs-btn-disabled-color: #E51170!important;
   --bs-btn-disabled-border-color: #E51170!important;
   --bs-btn-hover-color: #fff;
+}
+.carousel button {
+  opacity: 1;
+}
+.carousel button:hover {
+  opacity: 0.5;
 }
 
 .background {
@@ -567,6 +639,10 @@ footer .link-body-emphasis:focus,
   text-align: left;
   color: #272727;
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .news .card-text b {
   font-weight: 700;
@@ -586,8 +662,18 @@ footer .link-body-emphasis:focus,
   display: contents;
 }
 
+.full-img {
+  max-height: 500px;
+  min-width: 50%;
+  margin: auto !important;
+  display: block;
+}
+
 .events a {
   text-decoration: none !important;
+}
+.events .card-text {
+  -webkit-line-clamp: 5;
 }
 
 .reviews a {
@@ -659,11 +745,18 @@ footer .link-body-emphasis:focus,
 .footer__left-2 {
   font-weight: 700;
 }
-.footer__center-left, .footer__center-right {
+.footer__center {
   font-family: "Roboto", sans-serif;
   letter-spacing: 0em;
   text-align: left;
   font-weight: 400;
+}
+.footer__center ul {
+  list-style-position: inside;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-count: 2;
+  height: 150px;
 }
 .footer__right {
   font-family: "Open Sans", sans-serif;
@@ -676,7 +769,6 @@ footer .link-body-emphasis:focus,
   letter-spacing: 0.06em;
   text-align: left;
   font-weight: 400;
-  margin-top: 23px !important;
   display: flex;
 }
 .footer__bottom a {
@@ -685,6 +777,10 @@ footer .link-body-emphasis:focus,
 .footer__bottom img {
   width: 88px;
   height: 31px;
+}
+
+.letsee-guard {
+  z-index: 2;
 }
 
 /*# sourceMappingURL=style.css.map */
